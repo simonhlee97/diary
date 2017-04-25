@@ -25,7 +25,7 @@
     if (array_key_exists("submit", $_POST)) {
         
         $link = mysqli_connect($host, $user, $pass, $db, $port);
-        
+
         if (mysqli_connect_error()) {
             
             die ("Database Connection Error");
@@ -85,7 +85,9 @@
                         } 
 
                         header("Location: loggedinpage.php");
+
                     }
+
                 } 
                 
             } else {
@@ -121,78 +123,45 @@
                     } else {
                         
                         $error = "That email/password combination could not be found.";
+                        
                     }
+                    
                 }
+            
         }
+        
+        
     }
+
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<div id="error"><?php echo $error; ?></div>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-<style>
-.container{
-    text-align: center;
-    width: 400px;
-}
-</style>
-</head>
-    <body>
-        <div class="container">
-            <h1>Secret Diary</h1>
-        <form method="post" id = "signUpForm">
-            <p>Interested? Sign up now.</p>
-            <fieldset class="form-group">
-                <input class="form-control" type="email" name="email" placeholder="Your Email">
-            </fieldset>
-            <fieldset class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password">
-            </fieldset>
+<form method="post">
+
+    <input type="email" name="email" placeholder="Your Email">
     
-            <div class="checkbox">
-                <label>
-                <input type="checkbox" name="stayLoggedIn" value=1> Stay logged in
-                </label>
-            </div>
+    <input type="password" name="password" placeholder="Password">
     
-            <fieldset class="form-group">
-                <input type="hidden" name="signUp" value="1">
-                <input class="btn btn-success" type="submit" name="submit" value="Sign Up!">
-            </fieldset>
-        </form>
+    <input type="checkbox" name="stayLoggedIn" value=1>
+    
+    <input type="hidden" name="signUp" value="1">
+        
+    <input type="submit" name="submit" value="Sign Up!">
 
-        <form method="post" id = "logInForm">
-            <fieldset class="form-group">
-                <input class="form-control" type="email" name="email" placeholder="Your Email">
-                
-            </fieldset>
-            
-            <fieldset class="form-group">
-                <input class="form-control"type="password" name="password" placeholder="Password">
-            </fieldset>
-            
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="stayLoggedIn" value=1> Stay logged in
-                </label>
-            </div>
-                <input type="hidden" name="signUp" value="0">
-            <fieldset class="form-group">
-                <input class="btn btn-success" type="submit" name="submit" value="Log In!">
-            </fieldset>
-        </form>
-      </div>
+</form>
 
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-  </body>
-</html>
+<form method="post">
 
+    <input type="email" name="email" placeholder="Your Email">
+    
+    <input type="password" name="password" placeholder="Password">
+    
+    <input type="checkbox" name="stayLoggedIn" value=1>
+    
+    <input type="hidden" name="signUp" value="0">
+        
+    <input type="submit" name="submit" value="Log In!">
+
+</form>
